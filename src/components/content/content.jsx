@@ -8,6 +8,7 @@ import UpdateForm from "../UpdateForm";
 import { DeleteFilled, EditFilled } from '@ant-design/icons';
 import NoteList from "../NoteList";
 import { useNotes } from "../../hooks/useNotes";
+import NoteComponent from "../NoteComponent";
 
 const Content = ({query, setQuery}) => {
     const {isCreatingNote, setActive, isShowSingleNote, isUpdatingNote} = useContext(ActiveNoteContext)
@@ -19,15 +20,13 @@ const Content = ({query, setQuery}) => {
       const searchedNotes = useMemo(() => {
           return filteredNotes.filter(note => note.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
       }, [query, filteredNotes])
-  
-        console.log('res', searchedNotes)
         
 
     return (
-        <Layout.Content>
+        <Layout.Content className="content__block">
             {isUpdatingNote && <UpdateForm note={note} />}
             {isCreatingNote && <AddNoteForm />}
-            {isShowSingleNote && <div>One element</div>}
+            {isShowSingleNote && <NoteComponent note={note} />}
             {!isShowSingleNote && !isCreatingNote && !isUpdatingNote && <NoteList searchedNotes={searchedNotes} />}
         </Layout.Content>
     )

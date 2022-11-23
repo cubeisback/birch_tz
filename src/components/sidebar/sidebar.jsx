@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import NotesList from "../NotesList";
 import { Button, Layout } from "antd";
 import { ActiveNoteContext } from "../../providers/ActiveNoteProvider";
+import {PlusCircleFilled} from '@ant-design/icons';
 
 const Sidebar = () => {
     const {setIsCreatingNote, setIsShowSingleNote, setIsUpdatingNote} = useContext(ActiveNoteContext)
@@ -13,9 +14,11 @@ const Sidebar = () => {
     }
 
     return (
-        <Layout.Sider theme="light" className="sidebar">
+        <Layout.Sider theme="light">
+            <Button type="dashed" className="sidebar_btn" onClick={addNewNote}><PlusCircleFilled /> Add Note</Button>
+
             <NotesList />
-            <Button onClick={addNewNote}>Add Note</Button>
+            
         </Layout.Sider>
     )
 }

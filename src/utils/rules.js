@@ -1,5 +1,5 @@
 export const rules = {
-    required: (message = "Обязательное поле") => ({
+    required: (message = "Required field") => ({
         required: true,
         message
     })

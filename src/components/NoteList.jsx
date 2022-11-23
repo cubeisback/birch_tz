@@ -7,7 +7,7 @@ import { ActiveNoteContext } from "../providers/ActiveNoteProvider";
 const NoteList = ({searchedNotes}) => {
     const {notes, note, setNote} = useContext(NotesContext)
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const {isCreatingNote, setIsCreatingNote, setIsUpdatingNote, active, setActive} = useContext(ActiveNoteContext)
+    const {isCreatingNote, setIsCreatingNote, setIsUpdatingNote, setIsShowSingleNote, setActive} = useContext(ActiveNoteContext)
     
     
 
@@ -31,6 +31,13 @@ const NoteList = ({searchedNotes}) => {
         setNote(note)
         setIsUpdatingNote(true)
       }
+      
+      const showNote = (note) => {
+        setActive(note.id)
+        setNote(note)
+        setIsShowSingleNote(true)
+        setIsCreatingNote(false)
+      }
     
     if(!searchedNotes.length) {
         return (
@@ -53,6 +60,7 @@ const NoteList = ({searchedNotes}) => {
                 <Card.Meta
                     title={note.name}
                     description={note.content}
+                    onClick={() => showNote(note)}
                 />
             </Card>
             <Modal 

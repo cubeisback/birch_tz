@@ -6,6 +6,7 @@ import { Button, Form, Input, Layout, Row } from "antd";
 import { rules } from "../utils/rules";
 import { ActiveNoteContext } from "../providers/ActiveNoteProvider";
 import { NotesContext, updateNote, updateNoteFunc } from "../providers/NotesProvider";
+import {SaveFilled} from '@ant-design/icons'
 
 
 
@@ -29,8 +30,8 @@ const UpdateForm = ({note}) => {
     const finishUpdate = () => {
         setNote(false)
         setIsUpdatingNote(false)
-        // setName('');
-        // setContent('');
+        setName('');
+        setContent('');
     }
   
     return (
@@ -53,7 +54,7 @@ const UpdateForm = ({note}) => {
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">
-                    Close
+                    <SaveFilled /> Close
                 </Button>
             </Form.Item>
         </Form>

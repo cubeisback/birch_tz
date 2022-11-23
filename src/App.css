@@ -3,3 +3,47 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search {
+  width: 300px;
+}
+
+.sidebar_btn {
+  margin: 15px auto 5px;
+  display: flex;
+  align-items: center;
+}
+
+.list__item {
+  padding: 5px 5px 5px 10px!important;
+}
+
+.list__item > ul {
+  margin-block-start: 10px!important;
+  text-align: right;
+}
+
+.list__item_title {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.list__item_description {
+  cursor: pointer;
+}
+
+.content__block {
+  padding: 30px;
+  min-height: calc(100vh - 64px)!important;
+}
