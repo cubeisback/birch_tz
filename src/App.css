@@ -47,3 +47,15 @@ h1 {
   padding: 30px;
   min-height: calc(100vh - 64px)!important;
 }
+
+.content__title {
+  margin-top: 10px;
+}
+
+.content__edit_btn {
+  margin-left: 15px;
+}
+
+.btn_margin {
+  margin: 0 5px;
+}
